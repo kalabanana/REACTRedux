@@ -6,30 +6,45 @@ import App from "./components/Person";
 import style from './index.css';
 
 const store = createStore(person);
-
+// createStore !!!
 const render = () =>
     ReactDOM.render(
         <App
             person={store.getState()}
             changeName={
-                name => store.dispatch(
-                    { type: "CHANGE_NAME", payload: name }
-                    )}
+                name => store.dispatch({type: "CHANGE_NAME", payload: name })}
+            //action is object, type is property in action as well as payload
+            //payload store data..
+            //reducer is a function
             changeAddress={address =>
-                store.dispatch({ type: "CHANGE_ADDRESS", payload: address })}
-            openNameModal={() => store.dispatch({ type: "OPEN_NAME", payload: true })}
+                store.dispatch({type: "CHANGE_ADDRESS", payload: address })}
+            openNameModal={() => store.dispatch({
+                type: "OPEN_NAME", payload: true
+            })}
             closeNameModal={() =>
-                store.dispatch({ type: "OPEN_NAME", payload: false })}
+                store.dispatch({
+                    type: "OPEN_NAME", payload: false
+                })}
             openAddressModal={() =>
-                store.dispatch({ type: "OPEN_ADDRESS", payload: true })}
+                store.dispatch({
+                    type: "OPEN_ADDRESS", payload: true
+                })}
             closeAddressModal={() =>
-                store.dispatch({ type: "OPEN_ADDRESS", payload: false })}
+                store.dispatch({
+                    type: "OPEN_ADDRESS", payload: false
+                })}
             openTeamsModal={() =>
-                store.dispatch({ type: "OPEN_TEAM", payload: true })}
+                store.dispatch({
+                    type: "OPEN_TEAM", payload: true
+                })}
             closeTeamsModal={() =>
-                store.dispatch({ type: "OPEN_TEAM", payload: false })}
+                store.dispatch({
+                    type: "OPEN_TEAM", payload: false
+                })}
             addInputs={ newInput =>
-                store.dispatch({ type: "ADD_INPUTS", payload: newInput})
+                store.dispatch({
+                    type: "ADD_INPUTS", payload: newInput
+                })
             }
             updateTeam = { teams =>
                 store.dispatch({type: "UPDATE_TEAMS", payload: teams})
@@ -40,3 +55,4 @@ const render = () =>
 
 render();
 store.subscribe(render);
+//subscribe?

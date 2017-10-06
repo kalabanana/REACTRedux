@@ -9,6 +9,7 @@ class App extends React.Component {
     }
     render() {
         let {person} = this.props;
+        // person = this.props.person
         let input;
 
         return (
@@ -31,13 +32,12 @@ class App extends React.Component {
                             isOpen={person.isNameModalOpen}
                             onClose={this.props.closeNameModal}
                         >
-                            {" "}
                             <strong>Please Modify your Name:</strong>
                             <br/><br/>
                             <input
                                 ref={node => {
                                     input = node;
-                                }}/>{" "}
+                                }}/>
                             <br/><br/>
                             <button className="btn btn-primary"
                                 onClick={() => {

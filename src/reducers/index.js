@@ -17,6 +17,8 @@ const rootReducer =  (state =defaultState, action) => {
         case "CHANGE_NAME":
             state = {...state, name: action.payload, isNameModalOpen: false};
             axios.post(route, state).then(function(response) {
+                //using axios to post data
+                //why axios? easy syntax and robust
             });
             return state;
         case "CHANGE_ADDRESS":
