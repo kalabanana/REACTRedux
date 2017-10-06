@@ -4,7 +4,7 @@ import Modal from './Modal';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.addInputs = this.addInputs.bind(this);
+       // this.addInputs = this.addInputs.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
     render() {
@@ -44,6 +44,7 @@ class App extends React.Component {
                                     this.props.changeName(input.value);
                                     input.value = "";
                                 }}>
+
                                 Submit
                             </button>
                             <button className="btn btn-danger" onClick={this.props.closeNameModal}>Close</button>
@@ -106,10 +107,11 @@ class App extends React.Component {
                             <form ref={nodes => this.nodes = nodes }  onSubmit={this.onSubmit}>
                                 <ul id="dynamicInput">
                                     {person.inputs.map((input, idx) =>{
-                                        return (<li key={idx}>Team {idx+1}: <input /></li>)
+                                        return (
+                                            <li key={idx}>Team {idx+1}: <input /></li>)
                                     })}
                                 </ul>
-                                <a className="additional" onClick={this.addInputs}>+ add another</a><br/>
+                                <a className="additional" onClick={()=>this.addInputs()}>+ add another</a><br/>
                                 <button className="btn btn-primary" onSubmit={this.onSubmit}>Submit</button>
                                 <button className="btn btn-danger" onClick={this.props.closeTeamsModal}>Close</button>
                             </form>
